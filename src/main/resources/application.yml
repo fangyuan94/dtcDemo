@@ -1,0 +1,69 @@
+server:
+  port: 18081
+spring:
+  #mysql数据库连接池配置
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://119.3.229.77:3307/workstation-base?useUnicode=true&useSSL=false&characterEncoding=UTF-8&allowMultiQueries=true
+    ## url: jdbc:mysql://localhost:3306/demo?useUnicode=true&useSSL=false&characterEncoding=UTF-8
+    ##root
+    ##rootroot
+    username: root
+    password: haizhi2018
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+    logSlowSql: false
+#redis
+redis:
+  #redis机器ip
+  hostname: 127.0.0.1
+  #redis端口
+  port: 6379
+  #redis密码
+  password:
+  #redis超时时间（毫秒），如果不设置，取默认值2000
+  timeout: 10000
+  #最大空闲数
+  maxIdle: 300
+  #连接池的最大数据库连接数。设为0表示无限制,如果是jedis 2.4以后用redis.maxTotal
+  #maxActive=600
+  #控制一个pool可分配多少个jedis实例,用来替换上面的redis.maxActive,如果是jedis 2.4以后用该属性
+  maxTotal: 10
+  #最大建立连接等待时间。如果超过此时间将接到异常。设为-1表示无限制。
+  maxWaitMillis: 1000
+  #连接的最小空闲时间 默认1800000毫秒(30分钟)
+  minEvictableIdleTimeMillis: 300000
+  #每次释放连接的最大数目,默认3
+  numTestsPerEvictionRun: 2
+  #逐出扫描的时间间隔(毫秒) 如果为负数,则不运行逐出线程, 默认-1
+  timeBetweenEvictionRunsMillis: 30000
+  #是否在从池中取出连接前进行检验,如果检验失败,则从池中去除连接并尝试取出另一个
+  testOnBorrow: true
+  #在空闲时检查有效性, 默认false
+  testWhileIdle: true
+dtc:
+  ###是否使用dtc 字典转换插件 默认为ture
+  enabled: true
+  cache:
+    ### 缓存类型 支持redis与本地
+    type: redis
+    ##后续会添加是否启用自动更新，即数据库中字典的变更会影响本地环境变更
+###springboot2.x Actuator只暴露了health和info端点
+##如果需要则使用下面配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
