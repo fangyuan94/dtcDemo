@@ -1,7 +1,7 @@
 package com.fc.dtcDemo.config;
 
-import com.fc.dtc.bean.DisctionaryBean;
-import com.fc.dtc.cache.DisctionaryJDBCActuator;
+import com.fc.dtc.bean.DictionaryBean;
+import com.fc.dtc.cache.DictionaryJDBCActuator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -13,18 +13,18 @@ import java.util.List;
 public class DemoConfigure {
 
     @Bean
-    public DisctionaryJDBCActuator disctionaryJDBCActuator(){
+    public DictionaryJDBCActuator dictionaryJDBCActuator(){
 
-        return new DisctionaryJDBCActuator() {
+        return new DictionaryJDBCActuator() {
             //
             @Override
-            public List<DisctionaryBean> execute(JdbcTemplate jdbcTemplate) {
+            public List<DictionaryBean> execute(JdbcTemplate jdbcTemplate) {
 
-                String sql = "select dictionary_code as type,name,code,item_order as item_order from dictionary_item where status =1";
+                String sql = "select  type,name,code,item_order as item_order from dictionary where status =1";
 
                 Object[] param = new Object[0];
 
-                return jdbcTemplate.query(sql,param, new BeanPropertyRowMapper<>(DisctionaryBean.class));
+                return jdbcTemplate.query(sql,param, new BeanPropertyRowMapper<>(DictionaryBean.class));
 
             }
         };

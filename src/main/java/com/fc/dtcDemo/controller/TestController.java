@@ -22,13 +22,13 @@ public class TestController {
 
         TestVo tv = new TestVo();
 
-        tv.setPoliceType("1");
-        tv.setAppTypeCode_mc("普适应用");
+        tv.setSex("1");
+        tv.setCar_mc("奔驰");
 
         TestVo1 tv1 = new TestVo1();
 
-        tv1.setModelType_mc("管理");
-        tv1.setType("40002");
+        tv1.setPhone("0");
+        tv1.setClothes_mc("阿迪达斯");
         tv.setTest1(tv1);
 
         Map<String, TestVo1> m1 = new HashMap<>();
@@ -49,7 +49,7 @@ public class TestController {
     @GetMapping("test1")
     @ResponseBody
     public TreeSet test1(){
-        return dataTransformationUtils.getDictionaryByType("police_type");
+        return dataTransformationUtils.getDictionaryByType("sex");
     }
 
 }

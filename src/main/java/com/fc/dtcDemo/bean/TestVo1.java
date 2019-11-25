@@ -23,14 +23,14 @@ public class TestVo1 implements Serializable {
 	 */
 	private static final long serialVersionUID = -8527981053862121515L;
 
-	@TranslateProperty(encode=true,type="factor_type")
-	private String type;
+	@TranslateProperty(encode=true,type="phone")
+	private String phone;
 
-	private String type_mc;
+	private String phone_mc;
 
-	@TranslateProperty(encode=false,type="model_type")
-	private String modelType_mc;
+	@TranslateProperty(encode=false,type="clothes")
+	private String clothes_mc;
 
-	private String modelType;
+	private String clothes;
 
 }

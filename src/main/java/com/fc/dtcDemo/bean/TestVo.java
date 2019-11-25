@@ -28,15 +28,15 @@ public class TestVo  implements Serializable {
 	private static final long serialVersionUID = -8527981053862121515L;
 
 	
-	@TranslateProperty(encode=true,type="police_type")
-	private String policeType;
+	@TranslateProperty(encode=true,type="sex")
+	private String sex;
 
-	private String policeType_mc;
+	private String sex_mc;
 
-	@TranslateProperty(encode=false,type="app_type_code")
-	private String appTypeCode_mc;
+	@TranslateProperty(encode=false,type="car")
+	private String car_mc;
 
-	private String appTypeCode;
+	private String car;
 
 	@TranslateProperty(translate=TestVo1.class)
 	private TestVo1 test1;
